@@ -44,6 +44,7 @@ function Signup() {
           </Typography>
           <Box component="form" onSubmit={handleSubmit} sx={{ mt: 2 }}>
             <TextField
+              color='black'
               margin="normal"
               required
               fullWidth
@@ -56,6 +57,7 @@ function Signup() {
               onChange={(e) => setEmail(e.target.value)}
             />
             <TextField
+              color='black'
               margin="normal"
               required
               fullWidth
@@ -68,6 +70,7 @@ function Signup() {
               onChange={(e) => setPassword(e.target.value)}
             />
             <TextField
+              color='black'
               margin="normal"
               required
               fullWidth

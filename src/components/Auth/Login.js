@@ -48,6 +48,7 @@ function Login() {
               fullWidth
               id="email"
               label="Email Address"
+              color='black'
               name="email"
               autoComplete="email"
               autoFocus
@@ -63,6 +64,7 @@ function Login() {
               type="password"
               id="password"
               autoComplete="current-password"
+              color='black'
               value={password}
               onChange={(e) => setPassword(e.target.value)}
             />
