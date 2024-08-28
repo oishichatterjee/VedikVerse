@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { TextField, Button, Box, Typography, Paper } from '@mui/material';
 import { Link, useNavigate } from 'react-router-dom';
-import { motion } from 'framer-motion';
+import { color, motion } from 'framer-motion';
 
 function Login() {
   const [email, setEmail] = useState('');
@@ -28,6 +28,7 @@ function Login() {
         flexDirection: 'column',
         alignItems: 'center',
         justifyContent: 'center',
+        color: 'grey',
         height: '100%',
         padding: 3,
       }}

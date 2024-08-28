@@ -24,7 +24,8 @@ const theme = createTheme({
     },
     text: {
       primary: '#FFFFFF',
-      secondary: 'rgba(255, 255, 255, 0.7)',
+      secondary: 'rgba(0, 0, 0, 0.7)',
+      fourth: 'rgba(255,255,255, 0.7)'
     },
   },
   typography: {
@@ -41,13 +42,14 @@ const theme = createTheme({
       fontFamily: '"Montserrat", "Roboto", "Arial", sans-serif',
       fontWeight: 500,
       letterSpacing: '0.05em',
+      borderRadius: 7
     },
   },
   components: {
     MuiButton: {
       styleOverrides: {
         root: {
-          borderRadius: 0,
+          borderRadius: 7,
           padding: '12px 24px',
         },
       },
