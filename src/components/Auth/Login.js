@@ -6,17 +6,37 @@ import { color, motion } from 'framer-motion';
 function Login() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [errorMessage, setErrorMessage] = useState('');
   const navigate = useNavigate();
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Here you would typically make an API call to authenticate the user
-    // For this example, we'll just simulate a successful login
+
+    // Email and Password Regex patterns
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+
+    // Email validation
+    if (!emailRegex.test(email)) {
+      setErrorMessage("Please enter a valid email address.");
+      return;
+    }
+
+    // Password validation
+    if (!passwordRegex.test(password)) {
+      setErrorMessage("Password must be at least 8 characters long, include an uppercase letter, a lowercase letter, a number, and a special character.");
+      return;
+    }
+
+    // If both validations pass
+    setErrorMessage('');
+
+    // Simulating a successful login
     console.log('Login submitted', { email, password });
-    
+
     // Set authentication state
     localStorage.setItem('isAuthenticated', 'true');
-    
+
     // Navigate to the landing page
     navigate('/');
   };
@@ -69,6 +89,11 @@ function Login() {
               value={password}
               onChange={(e) => setPassword(e.target.value)}
             />
+            {errorMessage && (
+              <Typography variant="body2" color="error" align="center">
+                {errorMessage}
+              </Typography>
+            )}
             <Button
               type="submit"
               fullWidth
