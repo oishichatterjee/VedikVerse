@@ -13,29 +13,31 @@ function Signup() {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    // Email and Password Regex patterns
+    // Regex for validating email and password
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
 
-    // Email validation
+    // Validate email format
     if (!emailRegex.test(email)) {
       setErrorMessage("Please enter a valid email address.");
       return;
     }
 
-    // Password validation
+    // Validate password strength
     if (!passwordRegex.test(password)) {
-      setErrorMessage("Password must be at least 8 characters long, include an uppercase letter, a lowercase letter, a number, and a special character.");
+      setErrorMessage(
+        "Password must be at least 8 characters long, include an uppercase letter, a lowercase letter, a number, and a special character."
+      );
       return;
     }
 
-    // Confirm password validation
+    // Validate password and confirm password match
     if (password !== confirmPassword) {
       setErrorMessage("Passwords do not match.");
       return;
     }
 
-    // If all validations pass
+    // If all validations pass, clear the error message and proceed
     setErrorMessage('');
 
     // Simulate successful signup
